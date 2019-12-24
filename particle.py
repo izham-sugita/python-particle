@@ -82,9 +82,22 @@ for i in range(N):
             pg1[i].rank = i
             pg1[i].xp = pg[j].xp
             pg1[i].yp = pg[j].yp
-
+'''
 for i in range(N):
     print(pg1[i].rank," ", pg1[i].xp,"  ", pg1[i].yp,"  ", pg1[i].dfo())
+'''
 
 print( sys.getsizeof(pg), " bytes" )
 print( sys.getsizeof(pg1), " bytes" )
+
+fp = open("particle-list.csv", "w")
+fp.write("x,y,z\n")
+for i in range(N):
+    str1 = str( pg1[i].xp )
+    str2 = str( pg1[i].yp )
+    strall = str1+","+str2+", 0.0\n"
+    fp.write(strall)
+fp.close()
+
+#pg = None
+#print(sys.getsizeof(pg))
